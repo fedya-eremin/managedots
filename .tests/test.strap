@@ -1,0 +1,12 @@
+#!/bin/bash
+
+testurl="https://github.com/fedya-eremin/dotfiles"
+testword="fedya-eremin/dotfile"
+testout="test.strap"
+file="../managedots.sh"
+chmod +x $file
+
+${file} -s $testurl $testout.1 0> /dev/null
+${file} -s $testword $testout.2 0> /dev/null
+
+[[ -d $testout.1 && -d $testout.2 ]] || exit 1
