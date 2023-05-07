@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: -s test
-        run: chmod +x ./.tests/test.strap && ./.test/test.strap
+        run: chmod +x .tests/test.strap && ./.tests/test.strap
         
       - name: -i test
-        run: cmod +x ./.tests/test.install && ./.test/test.install
+        run: cmod +x .tests/test.install && ./.tests/test.install
