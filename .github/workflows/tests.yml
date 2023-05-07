@@ -29,4 +29,4 @@ jobs:
         run: chmod +x .tests/test.strap && ./.tests/test.strap
         
       - name: -i test
-        run: cmod +x .tests/test.install && ./.tests/test.install
+        run: chmod +x .tests/test.install && ./.tests/test.install
