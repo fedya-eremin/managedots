@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-prog="managedots.sh"
+prog="./managedots.sh"
 testout="test.install"
 testsrc=".local/test.strap.1"
 chmod +x $prog

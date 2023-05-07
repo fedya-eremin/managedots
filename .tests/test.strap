@@ -3,7 +3,7 @@
 testurl="https://github.com/fedya-eremin/dotfiles"
 testword="fedya-eremin/dotfile"
 testout="test.strap"
-file="managedots.sh"
+file="./managedots.sh"
 chmod +x $file
 
 ${file} -s $testurl $testout.1 0> /dev/null
