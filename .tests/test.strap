@@ -6,7 +6,7 @@ testout="test.strap"
 file="./managedots.sh"
 chmod +x $file
 
-${file} -s $testurl $testout.1 0> /dev/null
-${file} -s $testword $testout.2 0> /dev/null
+${file} -s $testurl $testout.1
+${file} -s $testword $testout.2
 
-[[ -d $testout.1 && -d $testout.2 ]] || exit 1
+[[ -d $HOME/.local/$testout.1 && -d $HOME/.local/$testout.2 ]] || exit 1
