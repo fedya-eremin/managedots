@@ -1,7 +1,7 @@
 #!/bin/bash
 
 testurl="https://github.com/fedya-eremin/dotfiles"
-testword="fedya-eremin/dotfile"
+testword="fedya-eremin/dotfiles"
 testout="test.strap"
 file="./managedots.sh"
 chmod +x $file
