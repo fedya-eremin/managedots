@@ -10,9 +10,10 @@ case "$1" in
         config=${3:-".config"}
         for file in $(ls $HOME/$2); do
             state="n"
-            if ! grep -Fxq "$file" "$HOME/$2/.dotsignore"; then
+            if ! grep -Fxq "$file" "$HOME/$2/.dotsignore" && [[ -L $HOME/$config/$file ]]; then
                 read -p "$file exists. Overwrite? y/N: " $state
             fi
+            [[ ! -L $HOME/$config/$file ]] && state="y"
             if [[ $state == "y" ]]; then
                 [[ -e $HOME/$config/$file ]] && rm -rf $HOME/$config/$file
                 ln -s $HOME/$2/$file $HOME/$config/$file
@@ -23,7 +24,7 @@ case "$1" in
         [[ -z $2 ]] && { echo "No github repository specified"; exit 1; }
         [[ -z $3 ]] && { echo "No directory name specified"; exit 1; }
         [[ ! -e $HOME/.local ]] && mkdir "$HOME/.local"
-        if [[ $2 =~ https://[a-zA-Z0-9$-_.+!*\'()]+ ]]; then  # a pretty weak url check
+        if [[ $2 =~ https://[a-zA-Z0-9$-_.+]+ ]]; then  # a pretty weak url check
             git clone "$2" "$HOME/.local/$3"
         else 
             git clone "https://github.com/$2" "$HOME/.local/$3"
