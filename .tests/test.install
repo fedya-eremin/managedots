@@ -1,0 +1,19 @@
+#!/bin/bash
+
+prog="./managedots.sh"
+testout="test.install"
+testsrc=".local/test.strap.1"
+chmod +x $prog
+
+mkdir $HOME/$testout
+${prog} -i $testsrc $testout
+
+for file in $(ls $HOME/$testsrc); do
+    echo "checking $file"
+    [[ $(ls $HOME/$testout | grep -Fxs $file) ]] || exit 1
+    if [[ -d $file ]]; then
+        [[ "$(readlink -f $HOME/$testout/$file)" =~ $testsrc ]] || exit 1
+    else
+        [[ "$(readlink $HOME/$testout/$file)" =~ $testsrc ]] || exit 1
+    fi
+done
