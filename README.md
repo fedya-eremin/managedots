@@ -1,4 +1,4 @@
-
+In educational purposes
 [![CI](https://github.com/fedya-eremin/managedots/actions/workflows/tests.yml/badge.svg)](https://github.com/fedya-eremin/managedots/actions/workflows/tests.yml)
 # managedots - an utility to install your dotfiles
 
